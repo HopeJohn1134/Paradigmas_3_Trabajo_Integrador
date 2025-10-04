@@ -9,6 +9,7 @@ Plataforma Web de Reseñas y Calificaciones de Contenido Digital
 * **Alumno:** Hope John
 * **Profesor:** Mgter. Ing. Agustín Encina.
 * **Materia:** Paradigmas de la programacion 3
+* **Fecha de Entrega:** 07/11/2025
 
 ---
 
