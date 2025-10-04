@@ -1,0 +1,83 @@
+:root {
+  --bg-light: #f6f7fb;
+  --card-light: #ffffff;
+  --ink-light: #1f2937;
+  --muted-light: #6b7280;
+  --brand: #ba2525;
+  --radius: 12px;
+  --maxw: 1100px;
+}
+
+[data-theme="light"] {
+  --bg: var(--bg-light);
+  --card: var(--card-light);
+  --ink: var(--ink-light);
+  --muted: var(--muted-light);
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, p, ul, li, a { margin: 0; padding: 0; }
+ul { list-style: none; }/*con esto no se deberia arreglar que al cambiar de tamaño se muevan incorrectamente en el grid*/
+
+body {
+  font-family: system-ui, Helvetica, Arial;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--ink);
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  width: min(100% - 2rem, var(--maxw));
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+
+header.header {
+  background: rgba(167, 199, 238, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #e5e7eb;
+  color:#0b1746;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img { height: 50px; object-fit: contain; }
+.menu a {
+  text-decoration: none;
+  color: var(--ink);
+  margin-left: 1rem;
+  font-weight: 500;
+}
+.menu a:hover { color: var(--brand); }
+
+/* MAIN */
+.main-container { padding: 2rem 0; }
+.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+
+.features ul { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.features li {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  flex: 1 1 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer.footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer a { color: var(--brand); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
