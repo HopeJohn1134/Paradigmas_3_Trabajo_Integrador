@@ -1,19 +1,14 @@
-# 📌 Título del Proyecto
+# Plataforma Web de Reseñas y Calificaciones de Contenido Digital
 
-Plataforma Web de Reseñas y Calificaciones de Contenido Digital
 
----
-
-## 👨‍🎓 Datos del Trabajo Práctico
+## Datos del Trabajo Práctico
 
 * **Alumno:** Hope John
 * **Profesor:** Mgter. Ing. Agustín Encina.
 * **Materia:** Paradigmas de la programacion 3
 * **Fecha de Entrega:** 07/11/2025
 
----
-
-## 📝 Descripción
+## Descripción
 
 Este proyecto consiste en desarrollar una aplicación web sin frameworks, utilizando únicamente **HTML, CSS y JavaScript**, donde los usuarios puedan:
 
@@ -22,18 +17,14 @@ Este proyecto consiste en desarrollar una aplicación web sin frameworks, utiliz
 * Compartir opiniones y leer reseñas de otros usuarios.
 * Buscar y organizar contenido por categorías, géneros y calificaciones.
 
----
-
-## 🎯 Objetivos Generales
+## Objetivos Generales
 
 * Construir una plataforma web interactiva y responsiva.
 * Implementar un sistema de calificaciones múltiples para cada contenido.
 * Brindar la posibilidad de reseñas y comentarios entre usuarios.
 * Incorporar JavaScript para mejorar la interactividad y la experiencia de usuario.
 
----
-
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 proyecto-reseñas/
