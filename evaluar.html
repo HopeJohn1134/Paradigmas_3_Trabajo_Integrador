@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluar Artículo</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/evaluar.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">
+        <img src="img/logo.svg" alt="Logo Plataforma de Reseñas">
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="listado_tabla.html">Listado (Tabla)</a></li>
+          <li><a href="listado_box.html">Listado (Box)</a></li>
+          <li><a href="articulo.html">Articulo</a></li>
+          <li><a href="evaluar.html">Calificar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <h1>Evaluar Artículo</h1>
+
+      <form id="evaluarForm">
+        <label for="usuario">Nombre del usuario *</label>
+        <input type="text" id="usuario" required>
+
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" required>
+
+        <label for="articulo">Artículo</label>
+        <input type="text" id="articulo" value="Artículo desconocido" readonly>
+
+        <div class="calificacion-container">
+          <label>Agregar calificación</label>
+          <select id="tipoCalificacion">
+            <option value="">-- Selecciona tipo --</option>
+            <option value="comedia">Comedia</option>
+            <option value="policial">Policial</option>
+            <option value="accion">Acción</option>
+            <option value="aventura">Aventura</option>
+            <option value="thriller">Thriller</option>
+            <option value="terror">Terror</option>
+          </select>
+
+          <div class="stars" id="starsSelector">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+          </div>
+
+          <button type="button" id="agregarCalificacion" disabled>Agregar calificación</button>
+        </div>
+
+        <ul id="listaCalificaciones"></ul>
+
+        <label for="descripcion">Descripción (opcional, máximo 200 caracteres)</label>
+        <textarea id="descripcion" rows="4" maxlength="300"></textarea>
+        <div id="contadorDescripcion">0 / 200</div>
+
+        <div class="form-buttons">
+          <button type="button" id="enviarEvaluacion" disabled>Enviar evaluación</button>
+          <button type="button" id="limpiarFormulario">Limpiar todo</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="https://github.com/HopeJohn1134/Paradigmas_3_Trabajo_Integrador">&copy; 2025 Hope
+        John - GitHub</a>
+    </div>
+  </footer>
+
+  <script src="js/evaluar.js"></script>
+</body>
 </html>

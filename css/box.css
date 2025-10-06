@@ -24,6 +24,7 @@
 
 .box img {
     /*la parte mas dificil de lidiar con imagenes*/
+    /*probablemente deberia estandarizar el tamaño de las imagenes para la proxima entrega*/
     width: 100%;
     height: 300px;
     object-fit: contain;

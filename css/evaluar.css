@@ -1,0 +1,179 @@
+/* evaluar.css */
+
+/* Contenedor del formulario */
+.form-section {
+    background-color: var(--card);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--brand);
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+}
+
+/* Calificación con estrellas */
+.calificacion-container {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.stars span {
+    font-size: 4rem;
+    cursor: pointer;
+    color: #999999;
+    transition: transform 0.2s;
+}
+
+.stars span:hover,
+.stars span.active {
+    color: gold;
+    transform: scale(1.2);
+}
+
+/* Botón agregar calificación */
+#agregarCalificacion {
+    padding: 0.5rem 1rem;
+    background-color: var(--brand);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#agregarCalificacion:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#agregarCalificacion:hover:not(:disabled) {
+    background-color: #593a93;
+}
+
+/* Lista de calificaciones */
+#listaCalificaciones {
+    margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+#listaCalificaciones li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.8rem;
+    background-color: #dfe2e2;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Botón eliminar calificación */
+#listaCalificaciones li button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#listaCalificaciones li button:hover {
+    background-color: #c0392b;
+}
+
+/* Descripción */
+#descripcion {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+#contadorDescripcion {
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-align: right;
+    margin-top: 0.2rem;
+}
+
+/* Botones finales */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-buttons button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+#enviarEvaluacion {
+    background-color: var(--brand);
+    color: white;
+}
+
+#enviarEvaluacion:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#enviarEvaluacion:hover:not(:disabled) {
+    background-color: #593a93;
+}
+
+#limpiarFormulario {
+    background-color: #999;
+    color: white;
+}
+
+#limpiarFormulario:hover {
+    background-color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calificacion-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
