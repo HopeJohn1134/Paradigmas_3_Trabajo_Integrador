@@ -1,0 +1,64 @@
+.box-list h1,
+.content-type h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    margin-bottom: 2rem;
+}
+
+.box {
+    background-color: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box img {
+    /*la parte mas dificil de lidiar con imagenes*/
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+    background-color: var(--text);
+}
+
+.box a {
+    display: block;
+    color: var(--brand);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.box a:hover {
+    color: var(--card);
+    background-color: var(--brand);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius);
+    transform: scale(1.05);
+}
+
+.box p {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+
+@media (max-width: 768px) {
+    .boxes {
+        /*trucazo*/
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,87 @@
+.tabla {
+    width: 100%;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 5px solid var(--card);
+}
+
+.content-table th,
+.content-table td {
+    border: 2px solid var(--card);
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.content-table th {
+    background-color: var(--brand);
+    border: 4px solid var(--card);
+    color: var(--card);
+}
+
+.content-table td {
+    background-color: var(--card);
+
+}
+
+.content-table td a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: medium;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.content-table td a:hover {
+    color: var(--brand);
+    transform: scale(1.15);
+}
+
+
+@media (max-width: 700px) {
+    .content-table {
+        border: none;
+    }
+
+    .content-table th {
+        border: none;
+    }
+
+    /* convertir cada fila en bloque */
+    .content-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: none;
+    }
+
+    .content-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem;
+    }
+
+    .content-table td a:hover {
+        transform: none;
+    }
+
+    .content-table td:hover {
+
+        /*quizas no sea util en un telefono pero es bonito*/
+        a {
+            color: var(--brand);
+            transform: scale(1.15);
+        }
+
+        transform: scale(1.1);
+    }
+
+    .content-table td::after {
+        /*para mostrar un texto descriptivo del contenido*/
+        /*no será el metodo mas estandar pero quería probar*/
+        content: attr(calificacion_promedio);
+        font-weight: 300;
+    }
+}
