@@ -32,24 +32,30 @@ proyecto-reseñas/
 ├── index.html                # Portada principal
 ├── listado_tabla.html        # Listado en tabla
 ├── listado_box.html          # Listado en formato box/cards
-├── producto.html             # Ficha de un producto
-├── comprar.html              # Formulario de compra
+├── articulo.html             # Ficha de un articulo de reseña
+├── evaluar.html              # Formulario para dejar una reseña
 │
 ├── css/
-│   ├── reset.css
+│   ├── evaluar.css
 │   ├── styles.css
-│   └── responsive.css
+│   ├── tabla.css
+│   ├── box.css
+│   └── articulo.css
 │
 ├── js/
+│   ├── evaluar.js
 │   ├── main.js
-│   ├── productos.js
-│   └── compra.js
+│   ├── tabla.js
+│   ├── box.js
+│   └── articulo.js
 │
 ├── img/
-│   └── ...
+│   ├── logo.jpg
+│   └── articulos/
+│       └── ...
 │
 ├── docs/
-│   └── informe_TP1.pdf
+│   └── ...
 │
 └── README.md
 ```
