@@ -1,12 +1,69 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluar Artículo</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/articulo.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">
+        <img src="img/logo.svg" alt="Logo Plataforma de Reseñas">
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="listado_tabla.html">Listado (Tabla)</a></li>
+          <li><a href="listado_box.html">Listado (Box)</a></li>
+          <li><a href="articulo.html">Articulo</a></li>
+          <li><a href="evaluar.html">Calificar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container articulo-container">
+    <section class="articulo-header"> <img src="img/articulos/libros/libro3.jpg"
+        alt="Portada de El Eternauta" class="articulo-imagen">
+      <div class="articulo-info">
+        <h2>El Eternauta</h2>
+        <p class="descripcion-corta"> Una de las obras más emblemáticas del cómic argentino, escrita
+          por Héctor Germán Oesterheld e ilustrada por Francisco Solano López. Una historia de
+          ciencia ficción, resistencia y humanidad frente a la invasión y el destino. </p>
+      </div>
+    </section>
+    <section class="articulo-detalles">
+      <h3>Detalles del libro</h3>
+      <ul>
+        <li><strong>Autor:</strong> Héctor Germán Oesterheld</li>
+        <li><strong>Ilustrador:</strong> Francisco Solano López</li>
+        <li><strong>Editorial:</strong> Ediciones Récord</li>
+        <li><strong>Año de publicación:</strong> 1957</li>
+        <li><strong>Cantidad de páginas:</strong> 350</li>
+        <li><strong>Género:</strong> Ciencia ficción, Distopía</li>
+        <li><strong>ISBN:</strong> 978-9871123444</li>
+      </ul>
+    </section>
+    <section class="articulo-calificaciones">
+      <h3>Calificaciones promedio</h3>
+      <ul id="listaPromedios">
+        <!-- considerar fraccionar las estrellas en partes usando js y una img de estrella en vez del caracter-->
+        <li><span>Acción:</span> ⭐⭐⭐⭐★ (4.1)</li>
+        <li><span>Arte:</span> ⭐⭐⭐⭐★ (3.9)</li>
+        <li><span>Aventura:</span> ⭐⭐⭐⭐⭐ (4.8)</li>
+        <li><span>Trascendencia:</span> ⭐⭐⭐⭐⭐ (5.0)</li>
+      </ul>
+    </section>
+    <div class="articulo-boton">
+      <button id="btnEvaluar"><a href="evaluar.html">Calificar este artículo</a></button>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 Biblioteca de Evaluaciones — Proyecto educativo</p>
+  </footer>
+  <script> src = "js/articulo.js" </script>
+</body>
 </html>
