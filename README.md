@@ -21,7 +21,7 @@ Este proyecto consiste en desarrollar una aplicación web sin frameworks, utiliz
 
 * Construir una plataforma web interactiva y responsiva.
 * Implementar un sistema de calificaciones múltiples para cada contenido.
-* Brindar la posibilidad de reseñas y comentarios entre usuarios.
+* Brindar la posibilidad de reseñas y comentarios.
 * Incorporar JavaScript para mejorar la interactividad y la experiencia de usuario.
 
 ## Estructura del Proyecto
