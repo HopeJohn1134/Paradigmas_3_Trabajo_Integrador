@@ -1,6 +1,4 @@
-// evaluar.js
-
-// Elementos del DOM
+// DOM
 const tipoSelect = document.getElementById('tipoCalificacion');
 const starsSelector = document.getElementById('starsSelector');
 const agregarBtn = document.getElementById('agregarCalificacion');
@@ -17,9 +15,8 @@ const articuloInput = document.getElementById('articulo');
 let calificacionActual = 0; // estrellas seleccionadas
 let calificaciones = [];     // array de objetos {tipo, estrellas}
 
-// === Funciones ===
 
-// Manejo de estrellas seleccionables
+// estrellas seleccionables
 starsSelector.querySelectorAll('span').forEach(star => {
     star.addEventListener('click', () => {
         calificacionActual = parseInt(star.dataset.value);
@@ -28,16 +25,40 @@ starsSelector.querySelectorAll('span').forEach(star => {
     });
 });
 
+//un intento por hacer que se iluminen las estrellas de la izquierda a la selecionada/
+//intento fallido
+starsSelector.querySelectorAll('span').forEach(star => {
+    star.addEventListener('mouseenter', () => {
+        const hoverValue = parseInt(star.dataset.value);
+        starsSelector.querySelectorAll('span').forEach(s => {
+            s.classList.toggle('hover', parseInt(s.dataset.value) <= hoverValue);
+        });
+    });
+
+    star.addEventListener('mouseleave', () => {
+        starsSelector.querySelectorAll('span').forEach(s => s.classList.remove('hover'));
+    });
+    actualizarEstrellas();
+});
+
 function actualizarEstrellas() {
     starsSelector.querySelectorAll('span').forEach(star => {
         star.classList.toggle('active', parseInt(star.dataset.value) <= calificacionActual);
     });
 }
 
-// Habilitar o deshabilitar botón agregar
 function habilitarAgregar() {
     const tipo = tipoSelect.value;
-    agregarBtn.disabled = !tipo || calificaciones.some(c => c.tipo === tipo) || calificacionActual === 0;
+    const tipoRepetido = calificaciones.some(c => c.tipo === tipo);
+    const invalido = !tipo || tipoRepetido || calificacionActual === 0;
+    agregarBtn.disabled = invalido;
+}
+
+// Validar campos obligatorios y al menos una calificación
+function validarEnviar() {//capaz debería evaluar solo cuando se hace hover al boton de enviar
+    const valido = usuarioInput.value.trim() && emailInput.value.trim() &&
+        calificaciones.length > 0 && descripcion.value.length <= 300;
+    enviarBtn.disabled = !valido;
 }
 
 // Agregar calificación a la lista
@@ -94,7 +115,8 @@ function renderizarLista() {
 }
 
 // Actualizar contador de descripción y validar longitud
-descripcion.addEventListener('input', () => {
+descripcion.addEventListener('input', () => {//actualiza en cada cambio del input
+
     const len = descripcion.value.length;
     contadorDescripcion.textContent = `${len} / 200`;
     if (len > 200) {
@@ -105,15 +127,10 @@ descripcion.addEventListener('input', () => {
     validarEnviar();
 });
 
-// Validar campos obligatorios y al menos una calificación
-function validarEnviar() {
-    const valido = usuarioInput.value.trim() && emailInput.value.trim() &&
-        calificaciones.length > 0 && descripcion.value.length <= 300;
-    enviarBtn.disabled = !valido;
-}
-
-// Botón enviar evaluación
+//enviar evaluación
 enviarBtn.addEventListener('click', () => {
+    validarEnviar();
+    if (enviarBtn.disabled == true) return;
     const evaluacion = {
         usuario: usuarioInput.value.trim(),
         email: emailInput.value.trim(),
@@ -122,12 +139,7 @@ enviarBtn.addEventListener('click', () => {
         descripcion: descripcion.value.trim()
     };
 
-    // Guardar en localStorage
-    const storageKey = 'evaluaciones';
-    let todasEvaluaciones = JSON.parse(localStorage.getItem(storageKey)) || [];
-    todasEvaluaciones.push(evaluacion);
-    localStorage.setItem(storageKey, JSON.stringify(todasEvaluaciones));
-
+    // no hay base de datos así que no hace nada, solo verifico que sea enviable
     alert(`¡Evaluación enviada con éxito!\nUsuario: ${evaluacion.usuario}\nArtículo: ${evaluacion.articulo}`);
 
     // Reset parcial
@@ -143,7 +155,7 @@ enviarBtn.addEventListener('click', () => {
     validarEnviar();
 });
 
-// Botón limpiar todo
+// limpiar todo
 limpiarBtn.addEventListener('click', () => {
     if (confirm('¿Seguro que quieres limpiar todos los datos del formulario?')) {
         calificaciones = [];
@@ -159,5 +171,4 @@ limpiarBtn.addEventListener('click', () => {
     }
 });
 
-// Activar botón agregar al cambiar select
 tipoSelect.addEventListener('change', habilitarAgregar);

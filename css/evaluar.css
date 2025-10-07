@@ -1,6 +1,4 @@
-/* evaluar.css */
-
-/* Contenedor del formulario */
+/* formulario */
 .form-section {
     background-color: var(--card);
     padding: 2rem;
@@ -15,6 +13,7 @@
     color: var(--brand);
 }
 
+/*etiquetas, textos que describen las casillas de los formularios*/
 label {
     display: block;
     margin-top: 1rem;
@@ -22,22 +21,26 @@ label {
 }
 
 input[type="text"],
+/*input es */
 input[type="email"],
 select,
 textarea {
+    /*textarea para que se vea el texto(la zona) que se escribe, agregar margen y un borde separador*/
     width: 100%;
     padding: 0.6rem 0.8rem;
-    margin-top: 0.3rem;
+    font-size: 1rem;
+    margin: 0.3rem;
     border: 1px solid #ccc;
     border-radius: var(--radius);
-    font-size: 1rem;
 }
 
 input[readonly] {
+    /*como no tengo base de datos uso un readonly para aque no se pueda editar*/
     background-color: #f0f0f0;
+    cursor: not-allowed;
 }
 
-/* Calificación con estrellas */
+/* estrellas para calificar*/
 .calificacion-container {
     margin-top: 1rem;
     display: flex;
@@ -49,17 +52,17 @@ input[readonly] {
 .stars span {
     font-size: 4rem;
     cursor: pointer;
+    /*lo que costó encontrar el pointer no tiene nombre*/
     color: #999999;
-    transition: transform 0.2s;
+    transition: color 0.2s;
 }
 
 .stars span:hover,
 .stars span.active {
     color: gold;
-    transform: scale(1.2);
 }
 
-/* Botón agregar calificación */
+/*agregar calificación */
 #agregarCalificacion {
     padding: 0.5rem 1rem;
     background-color: var(--brand);
@@ -68,9 +71,11 @@ input[readonly] {
     border-radius: var(--radius);
     cursor: pointer;
     transition: background 0.3s;
+    /*sensacion de click*/
 }
 
 #agregarCalificacion:disabled {
+    /*para que no se pueda usar si esta repetido el tipo o no esta seleccionado*/
     background-color: #ccc;
     cursor: not-allowed;
 }
@@ -79,7 +84,6 @@ input[readonly] {
     background-color: #593a93;
 }
 
-/* Lista de calificaciones */
 #listaCalificaciones {
     margin-top: 1rem;
     list-style: none;
@@ -90,6 +94,7 @@ input[readonly] {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /*espacios entre textos*/
     padding: 0.5rem 0.8rem;
     background-color: #dfe2e2;
     margin-bottom: 0.5rem;
@@ -100,7 +105,7 @@ input[readonly] {
 /* Botón eliminar calificación */
 #listaCalificaciones li button {
     background-color: #e74c3c;
-    color: white;
+    color: var(--card);
     border: none;
     border-radius: var(--radius);
     padding: 0.3rem 0.6rem;
@@ -112,7 +117,6 @@ input[readonly] {
     background-color: #c0392b;
 }
 
-/* Descripción */
 #descripcion {
     margin-top: 0.5rem;
     font-size: 1rem;
@@ -125,7 +129,7 @@ input[readonly] {
     margin-top: 0.2rem;
 }
 
-/* Botones finales */
+
 .form-buttons {
     display: flex;
     justify-content: flex-end;
@@ -165,8 +169,10 @@ input[readonly] {
     background-color: #777;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
+
+    /*hay que cambiar para que cambie teniendo en cuenta la relacion de aspecto*/
     .calificacion-container {
         flex-direction: column;
         align-items: flex-start;
