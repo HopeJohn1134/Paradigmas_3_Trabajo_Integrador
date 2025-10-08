@@ -1,6 +1,6 @@
 // DOM
 const tipoSelect = document.getElementById('tipoCalificacion');
-const starsSelectorr = document.getElementById('starsSelector');
+const starsSelector = document.getElementById('starsSelector');
 const agregarBtn = document.getElementById('agregarCalificacion');
 const listaCalificaciones = document.getElementById('listaCalificaciones');
 const descripcion = document.getElementById('descripcion');
@@ -16,6 +16,7 @@ let calificacionActual = 0; // estrellas seleccionadas
 let calificaciones = [];     // array de objetos {tipo, estrellas}
 let hoverValue = 0 //donde está el mouse
 // estrellas seleccionables
+
 starsSelector.querySelectorAll('span').forEach(star => {
     star.addEventListener('click', () => {
         if (calificacionActual != parseInt(star.dataset.value)) {
@@ -30,26 +31,27 @@ starsSelector.querySelectorAll('span').forEach(star => {
 
 //un intento por hacer que se iluminen las estrellas de la izquierda a la selecionada/
 //intento fallido
-starsSelectorr.querySelectorAll('span').forEach(star => {
+starsSelector.querySelectorAll('span').forEach(star => {
     star.addEventListener('mouseenter', () => {
         hoverValue = parseInt(star.dataset.value);
-        starsSelectorr.querySelectorAll('span').forEach(s => {
+        starsSelector.querySelectorAll('span').forEach(s => {
             s.classList.toggle('hover', parseInt(s.dataset.value) <= hoverValue);
         });
+        actualizarEstrellas();
     });
     star.addEventListener('mouseleave', () => {
-        starsSelectorr.querySelectorAll('span').forEach(s => s.classList.remove('hover'));
+        starsSelector.querySelectorAll('span').forEach(s => s.classList.remove('hover'));
         hoverValue = 0
+        actualizarEstrellas();
     });
-    actualizarEstrellas();
 });
 
 function actualizarEstrellas() {
-    starsSelectorr.querySelectorAll('span').forEach(star => {
+    starsSelector.querySelectorAll('span').forEach(star => {
         star.classList.toggle('active', parseInt(star.dataset.value) <= calificacionActual);
     });
     if (hoverValue > calificacionActual) {
-        starsSelectorr.querySelectorAll('span').forEach(star => {
+        starsSelector.querySelectorAll('span').forEach(star => {
             star.classList.toggle('active', parseInt(star.dataset.value) <= hoverValue);
         });
     }
@@ -73,7 +75,7 @@ function validarEnviar() {//capaz debería evaluar solo cuando se hace hover al 
 // Agregar calificación a la lista
 agregarBtn.addEventListener('click', () => {
     const tipo = tipoSelect.value;
-    if (!tipo || calificacionActual === 0 || calificaciones.some(c => c.tipo === tipo)) return;
+    if (!tipo || calificaciones.some(c => c.tipo === tipo)) return;
 
     const calObj = { tipo, estrellas: calificacionActual };
     calificaciones.push(calObj);
