@@ -76,6 +76,7 @@ header.header {
 }
 
 .logo img {
+  display: flex;
   height: 6rem;
   object-fit: contain;
 }
@@ -171,7 +172,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
   .nav {
     flex-direction: column;
@@ -192,7 +193,8 @@ footer a:hover {
   }
 
   menu-toggle {
-    display: block;
+    display: flex;
+    flex-direction: row;
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -205,12 +207,17 @@ footer a:hover {
     flex-direction: column;
     background-color: var(--card);
     position: absolute;
-    top: 4rempx;
+    top: 100%;
     left: 0;
     width: 100%;
     padding: 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
   }
 
   .menu ul.active {

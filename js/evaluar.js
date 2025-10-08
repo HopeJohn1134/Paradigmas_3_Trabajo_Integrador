@@ -24,7 +24,6 @@ starsSelector.querySelectorAll('span').forEach(star => {
         } else {
             calificacionActual = 0;
         }
-
         actualizarEstrellas();
     });
 });
@@ -37,13 +36,12 @@ starsSelectorr.querySelectorAll('span').forEach(star => {
         starsSelectorr.querySelectorAll('span').forEach(s => {
             s.classList.toggle('hover', parseInt(s.dataset.value) <= hoverValue);
         });
-        actualizarEstrellas();
     });
     star.addEventListener('mouseleave', () => {
         starsSelectorr.querySelectorAll('span').forEach(s => s.classList.remove('hover'));
         hoverValue = 0
-        actualizarEstrellas();
     });
+    actualizarEstrellas();
 });
 
 function actualizarEstrellas() {
