@@ -1,6 +1,6 @@
 // DOM
 const tipoSelect = document.getElementById('tipoCalificacion');
-const starsSelector = document.getElementById('starsSelector');
+const starsSelectorr = document.getElementById('starsSelector');
 const agregarBtn = document.getElementById('agregarCalificacion');
 const listaCalificaciones = document.getElementById('listaCalificaciones');
 const descripcion = document.getElementById('descripcion');
@@ -14,43 +14,54 @@ const articuloInput = document.getElementById('articulo');
 
 let calificacionActual = 0; // estrellas seleccionadas
 let calificaciones = [];     // array de objetos {tipo, estrellas}
-
-
+let hoverValue = 0 //donde está el mouse
 // estrellas seleccionables
 starsSelector.querySelectorAll('span').forEach(star => {
     star.addEventListener('click', () => {
-        calificacionActual = parseInt(star.dataset.value);
+        if (calificacionActual != parseInt(star.dataset.value)) {
+            calificacionActual = parseInt(star.dataset.value);
+            habilitarAgregar();
+        } else {
+            calificacionActual = 0;
+        }
+
         actualizarEstrellas();
-        habilitarAgregar();
     });
 });
 
 //un intento por hacer que se iluminen las estrellas de la izquierda a la selecionada/
 //intento fallido
-starsSelector.querySelectorAll('span').forEach(star => {
+starsSelectorr.querySelectorAll('span').forEach(star => {
     star.addEventListener('mouseenter', () => {
-        const hoverValue = parseInt(star.dataset.value);
-        starsSelector.querySelectorAll('span').forEach(s => {
+        hoverValue = parseInt(star.dataset.value);
+        starsSelectorr.querySelectorAll('span').forEach(s => {
             s.classList.toggle('hover', parseInt(s.dataset.value) <= hoverValue);
         });
+        actualizarEstrellas();
     });
-
     star.addEventListener('mouseleave', () => {
-        starsSelector.querySelectorAll('span').forEach(s => s.classList.remove('hover'));
+        starsSelectorr.querySelectorAll('span').forEach(s => s.classList.remove('hover'));
+        hoverValue = 0
+        actualizarEstrellas();
     });
-    actualizarEstrellas();
 });
 
 function actualizarEstrellas() {
-    starsSelector.querySelectorAll('span').forEach(star => {
+    starsSelectorr.querySelectorAll('span').forEach(star => {
         star.classList.toggle('active', parseInt(star.dataset.value) <= calificacionActual);
     });
+    if (hoverValue > calificacionActual) {
+        starsSelectorr.querySelectorAll('span').forEach(star => {
+            star.classList.toggle('active', parseInt(star.dataset.value) <= hoverValue);
+        });
+    }
+
 }
 
 function habilitarAgregar() {
     const tipo = tipoSelect.value;
     const tipoRepetido = calificaciones.some(c => c.tipo === tipo);
-    const invalido = !tipo || tipoRepetido || calificacionActual === 0;
+    const invalido = !tipo || tipoRepetido || calificacionActual === 0;// el || esta muy bueno para reducir codigo eh?
     agregarBtn.disabled = invalido;
 }
 
