@@ -61,7 +61,7 @@ function actualizarEstrellas() {
 function habilitarAgregar() {
     const tipo = tipoSelect.value;
     const tipoRepetido = calificaciones.some(c => c.tipo === tipo);
-    const invalido = !tipo || tipoRepetido || calificacionActual === 0;// el || esta muy bueno para reducir codigo eh?
+    const invalido = !tipo || tipoRepetido;// el || esta muy bueno para reducir codigo eh?
     agregarBtn.disabled = invalido;
 }
 
