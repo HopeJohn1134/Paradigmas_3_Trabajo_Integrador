@@ -50,7 +50,7 @@ input[readonly] {
 }
 
 .stars span {
-    font-size: 4rem;
+    font-size: 3rem;
     cursor: pointer;
     /*lo que costó encontrar el pointer no tiene nombre*/
     color: #999999;
