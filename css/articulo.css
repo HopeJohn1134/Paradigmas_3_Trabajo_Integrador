@@ -4,7 +4,7 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     margin: 2rem auto;
-    max-width: 900px;
+    max-width: 100%;
 }
 
 .articulo-header {
@@ -13,7 +13,7 @@
 }
 
 .articulo-header img {
-    max-width: 300px;
+    width: 100%;
     border-radius: var(--radius);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }

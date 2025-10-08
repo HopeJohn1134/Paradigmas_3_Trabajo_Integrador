@@ -41,7 +41,7 @@ body {
 }
 
 .container {
-  /*esto debe ser la estructura mas rara que hice hasta ahora en una funcion*/
+  /*esto debe ser la estructura mas rara que hice hasta ahora*/
   width: min(100% - 2rem, var(--max-width));
   margin-inline: auto;
   padding: 1rem;
@@ -65,8 +65,18 @@ header.header {
 
 }
 
+/*menu desplegable*/
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
 .logo img {
-  height: 80px;
+  height: 6rem;
   object-fit: contain;
 }
 
@@ -90,7 +100,7 @@ header.header {
   color: var(--brand);
 }
 
-/* HERO */
+
 .hero {
   text-align: center;
   padding: 3rem 1rem;
@@ -106,7 +116,6 @@ header.header {
   color: var(--muted);
 }
 
-/* FEATURES */
 .features {
   padding: 2rem 1rem;
 
@@ -141,11 +150,10 @@ header.header {
   padding-bottom: 1.5rem;
   border-radius: var(--radius);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-  flex: 1 1 50px;
+  flex: 1 1 4rem;
 
 }
 
-/* FOOTER */
 footer.footer {
   padding: 1.5rem 0;
   text-align: center;
@@ -158,17 +166,13 @@ footer a {
 }
 
 footer a:hover {
-  /*cuando el cursor esta arriba del */
+  /*cuando el cursor esta arriba del texto*/
   color: var(--brand);
   text-decoration: underline;
 }
 
-/* RESPONSIVE */
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-  /*Porque 700px? mi pantalla es 1366p, no se si afecta*/
-  /*parece el mejor ancho para demostrar que funciona*/
-  /*en la proxima version quizas usar la relacion alto ancho para identificar un telefono??*/
   .nav {
     flex-direction: column;
     gap: 0.5rem;
@@ -180,6 +184,41 @@ footer a:hover {
   }
 
   .features li {
-    flex: 1 1 20px;
+    flex: 1 1 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 1001;
+    /* siempre arriba del menú */
+  }
+
+  .menu ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--card);
+    position: absolute;
+    top: 4rempx;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .menu ul.active {
+    display: flex;
+  }
+
+  .menu ul li {
+    text-align: center;
+    margin: 0.5rem 0;
   }
 }
