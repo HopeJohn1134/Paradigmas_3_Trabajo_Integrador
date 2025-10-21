@@ -101,7 +101,10 @@ function renderizarLista() {
         for (let i = 1; i <= 5; i++) {
             const s = document.createElement('span');
             s.textContent = '★';
-            if (i <= c.estrellas) s.classList.add('active');
+            s.dataset.value = i;
+            if (i <= c.estrellas) {
+                s.classList.add('active');
+            }
             s.addEventListener('click', () => {
                 calificaciones[idx].estrellas = i;
                 renderizarLista();
