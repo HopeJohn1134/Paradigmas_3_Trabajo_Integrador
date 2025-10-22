@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Reseñas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mixitup@3/dist/mixitup.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Logo Plataforma de Reseñas">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                ☰
+            </button>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="listado_tabla.html">Listado (Tabla)</a></li>
+                    <li><a href="listado_box.html">Listado (Box)</a></li>
+                    <li><a href="articulo.html">Articulo</a></li>
+                    <li><a href="evaluar.html">Calificar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Buscador por categoría</h2>
+            <p>Explora reseñas y calificaciones de películas, series, videojuegos, podcasts y
+                libros.</p>
+        </section>
+        <h3>Catálogo de Medios</h3>
+
+        <div class="filters">
+            <button type="button" data-filter="all">Todos</button>
+            <button type="button" data-filter=".pelicula">Películas</button>
+            <button type="button" data-filter=".serie">Series</button>
+            <button type="button" data-filter=".libro">Libros</button>
+            <button type="button" data-filter=".podcast">Podcasts</button>
+            <button type="button" data-filter=".videojuego">Videojuegos</button>
+        </div>
+
+        <div class="media-list">
+            <div class="media-item mix pelicula">
+                <strong>Inception</strong> (Película)
+            </div>
+            <div class="media-item mix serie">
+                <strong>Breaking Bad</strong> (Serie)
+            </div>
+            <div class="media-item mix libro">
+                <strong>Robin Hood</strong> (Libro)
+            </div>
+            <div class="media-item mix podcast">
+                <strong>Roma: Historia analizada</strong> (Podcast)
+            </div>
+            <div class="media-item mix videojuego">
+                <strong>Outer Wilds</strong> (Videojuego)
+            </div>
+        </div>
+
+        <script>
+            // Inicializar MixItUp
+            var mixer = mixitup('.media-list', {
+                selectors: {
+                    target: '.media-item'
+                },
+                animation: {
+                    duration: 300
+                }
+            });
+        </script>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="https://github.com/HopeJohn1134/Paradigmas_3_Trabajo_Integrador">&copy; 2025
+                Hope
+                John - GitHub</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
