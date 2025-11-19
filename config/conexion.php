@@ -2,8 +2,8 @@
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'resena_bd');
-define('DB_USER', 'root');
-define('DB_PASS', '12345');  
+define('DB_USER', 'admin01');
+define('DB_PASS', 'admin01');
 define('DB_CHARSET', 'utf8mb4');
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 define('DEBUG_MODE', true);
